@@ -1,20 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content class="page-content" (touchmove)="$event.preventDefault()"
+(touchstart)="touchstartEvent($event)" (touchend)="touchendEvent($event)">
+  <div class="container" #gameContainer>
+    <div class="header">
+      <div class="title">
+        {{target_score}}
+      </div>
+      <div class="info-group">
+        <div class="score">
+          <div class="txt">2048</div>
+          <div class="num-div">
+            <div class="num">{{score}}</div>
+            <div class="tip" #tip>{{tipStr}}</div>
+          </div>
+        </div>
+        <div class="score">
+          <div class="txt">Max Score</div>
+          <div class="num-div">
+            <div class="num">{{maxScore}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-info">
+      <ion-button small color="gamecolor" (click)="newGame()">New Game</ion-button>
+    </div>
+    <canvas class="gameCanvas" #gameCanvas></canvas>
+  </div>  
 </ion-content>
